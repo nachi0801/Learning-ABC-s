@@ -1,7 +1,5 @@
-// src/app/courses/page.jsx
-
 import React from 'react';
-import Image from 'next/image'; // Import Image component for logo
+import Image from 'next/image'; // Import Image component from Next.js
 
 
 const styles = {
@@ -15,90 +13,68 @@ const styles = {
     padding: '20px',
     textAlign: 'center',
   },
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '30px',
-  },
   logoContainer: {
-    marginRight: '10px', // Adjust space between logo and "Courses" text
-  },
-  headerText: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    color: '#FFFFFF',
+    marginBottom: '20px',
   },
   lessonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    alignItems: 'center', // Center the lesson items horizontally
-  },
-  lessonItem: {
     backgroundColor: '#FFFFFF',
     borderRadius: '20px',
     padding: '20px',
-    width: '250px',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.2s',
-    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '300px',
   },
-  lessonItemHover: {
-    transform: 'scale(1.05)',
+  lessonImage: {
+    marginBottom: '10px',
+    width: '200px',  // Set a fixed width for the lesson image
+    height: '200px', // Set a fixed height for the lesson image
+    objectFit: 'cover', // Ensure the image scales properly within the container
   },
-  icon: {
-    height: '100px',
-    width: '100px',
-    margin: '0 auto 10px', // Center the icon and add some space below it
-    backgroundSize: 'contain',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
+  lessonText: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: '20px',
   },
-  colorGuessIcon: {
-    backgroundImage: 'url("/path-to-color-guess-icon.png")', // Replace with your icon path
-  },
-  countingNumbersIcon: {
-    backgroundImage: 'url("/path-to-counting-numbers-icon.png")', // Replace with your icon path
-  },
-  learningABCIcon: {
-    backgroundImage: 'url("/path-to-learning-abc-icon.png")', // Replace with your icon path
+  button: {
+    backgroundColor: '#FF8C00',
+    color: '#FFF',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '10px',
+    fontSize: '1.2rem',
+    cursor: 'pointer',
   },
 };
 
-const CoursesPage = () => {
+const LessonPage = () => {
   return (
     <div style={styles.app}>
-      {/* Header with Logo and Text */}
-      <div style={styles.header}>
-        <div style={styles.logoContainer}>
-          <Image
-            src="/logo.png" // Ensure this path is correct
-            alt="Logo"
-            width={100} // Adjust size of the logo
-            height={100}
-          />
-        </div>
-        <h1 style={styles.headerText}>Courses</h1>
+      {/* Logo at the top */}
+      <div style={styles.logoContainer}>
+        <img
+          src="/logo.png" // Path to the logo image
+          alt="ABC Logo"
+          width={100}
+          height={100}
+        />
       </div>
 
-      {/* Lessons Section */}
+      {/* Lesson content */}
       <div style={styles.lessonContainer}>
-        <div style={styles.lessonItem}>
-          <div style={{ ...styles.icon, ...styles.colorGuessIcon }}></div>
-          <h2>Color Guess</h2>
-        </div>
-        <div style={styles.lessonItem}>
-          <div style={{ ...styles.icon, ...styles.countingNumbersIcon }}></div>
-          <h2>Counting Numbers</h2>
-        </div>
-        <div style={styles.lessonItem}>
-          <div style={{ ...styles.icon, ...styles.learningABCIcon }}></div>
-          <h2>Learning ABC</h2>
-        </div>
+        {/* Lesson Image above the Lesson Text */}
+        <img
+          src="/lesson.png" // Path to the lesson image
+          alt="Lesson"
+          style={styles.lessonImage}
+        />
+        <div style={styles.lessonText}>Lesson</div>
+        <button style={styles.button}>Select</button>
       </div>
     </div>
   );
 };
 
-export default CoursesPage;
+export default LessonPage;

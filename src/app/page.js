@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For routing
+import Image from 'next/image'; // For importing images
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,15 @@ const SignUp = () => {
   return (
     <div className="bg-yellow-100 flex items-center justify-center h-screen">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/logo.png" // Ensure this path is correct
+            alt="Logo"
+            width={150} // Adjust size as needed
+            height={150} // Adjust size as needed
+            className="object-contain" // Ensure the logo maintains its aspect ratio
+          />
+        </div>
         <h1 className="text-2xl font-bold mb-6 text-orange-600">Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
