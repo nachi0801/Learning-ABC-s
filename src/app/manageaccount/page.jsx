@@ -25,7 +25,7 @@ const ManageAccount = () => {
           placeholder="Users"
           className="border-2 border-gray-300 p-2 rounded-md flex-grow"
         />
-        <button className="bg-blue-500 text-white p-2 rounded-md">🔍</button>
+
         <select className="border-2 border-gray-300 p-2 rounded-md">
           <option>Role</option>
           <option>Admin</option>

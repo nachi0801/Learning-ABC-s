@@ -1,43 +1,127 @@
-// src/app/exercise/page.jsx
 import React from 'react';
 
-const Exercise = () => {
+const styles = {
+  navbar: {
+    backgroundColor: '#FFA500', // Orange background for the navbar
+    padding: '15px 20px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Add some shadow for depth
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000, // Ensure it's above the main content
+  },
+  navbarTitle: {
+    fontSize: '1.8rem',
+    fontWeight: 'bold',
+    color: '#FFF',
+  },
+  icon: {
+    fontSize: '1.8rem',
+    color: '#FFF',
+    marginLeft: '15px',
+    cursor: 'pointer',
+  },
+  container: {
+    backgroundColor: '#F9C74F', // Light yellow background for the page
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '80px', // Space for the fixed navbar
+  },
+  content: {
+    width: '100%',
+    maxWidth: '600px',
+    backgroundColor: '#FFA500', // Orange background for the main box
+    borderRadius: '20px',
+    padding: '30px',
+    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', // Shadow for depth
+  },
+  textareaContainer: {
+    position: 'relative',
+    marginBottom: '20px',
+  },
+  textarea: {
+    width: '100%',
+    height: '150px',
+    borderRadius: '10px',
+    padding: '15px',
+    border: 'none',
+    backgroundColor: '#FFB347',
+    color: '#FFF',
+    fontSize: '1.1rem',
+    resize: 'none',
+  },
+  addIcon: {
+    position: 'absolute',
+    top: '10px',
+    right: '15px',
+    fontSize: '2rem',
+    color: '#FFF',
+    cursor: 'pointer',
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  button: {
+    padding: '12px 25px',
+    fontSize: '1.2rem',
+    borderRadius: '10px',
+    border: 'none',
+    cursor: 'pointer',
+    width: '48%',
+  },
+  setDateButton: {
+    backgroundColor: '#FFF',
+    color: '#FF4500',
+    transition: 'background-color 0.3s',
+  },
+  postButton: {
+    backgroundColor: '#007BFF',
+    color: '#FFF',
+    transition: 'background-color 0.3s',
+  },
+};
+
+const ExercisePage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-yellow-500">
-      <div className="w-full max-w-[500px] bg-orange-400 rounded-2xl p-8 shadow-lg"> {/* Adjusted dimensions and added shadow */}
-        
-        {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-3xl text-white">☰</div>
-          <h1 className="text-3xl text-white font-bold">Exercise</h1>
-          <div className="flex space-x-2">
-            <div className="text-2xl text-white">💬</div>
-            <div className="text-2xl text-white">⚙️</div>
+    <div>
+      {/* Navbar */}
+      <nav style={styles.navbar}>
+        <div style={styles.icon}>☰</div>
+        <div style={styles.navbarTitle}>Exercise</div>
+        <div>
+          <span style={styles.icon}>💬</span>
+          <span style={styles.icon}>⚙️</span>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <div style={styles.container}>
+        <div style={styles.content}>
+          {/* Textarea */}
+          <div style={styles.textareaContainer}>
+            <textarea
+              style={styles.textarea}
+              placeholder="Add your Question..."
+            ></textarea>
+            <div style={styles.addIcon}>➕</div>
+          </div>
+
+          {/* Buttons */}
+          <div style={styles.buttonContainer}>
+            <button style={{ ...styles.button, ...styles.setDateButton }}>Set Date</button>
+            <button style={{ ...styles.button, ...styles.postButton }}>Post</button>
           </div>
         </div>
-
-        {/* Input Box */}
-        <div className="bg-orange-300 rounded-lg p-6 relative mb-6 shadow-md"> {/* Added shadow for depth */}
-          <textarea
-            className="w-full h-40 bg-transparent border-none text-white placeholder-white focus:outline-none resize-none"
-            placeholder="Add your Question..."
-          />
-          <div className="absolute top-4 right-4 text-white text-2xl cursor-pointer">➕</div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex justify-between">
-          <button className="bg-white text-orange-400 px-4 py-3 rounded hover:bg-gray-100 w-full mr-2">
-            Set Date
-          </button>
-          <button className="bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600 w-full">
-            Post
-          </button>
-        </div>
-
       </div>
     </div>
   );
 };
 
-export default Exercise;
+export default ExercisePage;

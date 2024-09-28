@@ -1,5 +1,70 @@
 import React from 'react';
 
+const styles = {
+  navbar: {
+    backgroundColor: '#FFA500', // Orange background for the navbar
+    padding: '15px 20px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Add some shadow for depth
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000, // Ensure it's above the main content
+  },
+  navbarTitle: {
+    fontSize: '1.8rem',
+    fontWeight: 'bold',
+    color: '#FFF',
+  },
+  icon: {
+    fontSize: '1.8rem',
+    color: '#FFF',
+    marginLeft: '15px',
+    cursor: 'pointer',
+  },
+  container: {
+    backgroundColor: '#F9C74F', // Light yellow background for the page
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '80px', // Space for the fixed navbar
+  },
+  content: {
+    width: '100%',
+    maxWidth: '1000px',
+    backgroundColor: '#FFA500', // Orange background for the main box
+    borderRadius: '20px',
+    padding: '30px',
+    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', // Shadow for depth
+  },
+  table: {
+    width: '100%',
+    backgroundColor: '#FFB347',
+    borderRadius: '10px',
+    overflowX: 'auto',
+  },
+  tableHead: {
+    backgroundColor: '#FF8C00',
+    color: '#FFF',
+    padding: '15px',
+  },
+  tableCell: {
+    padding: '15px',
+    color: '#FFF',
+  },
+  tableRow: {
+    borderBottom: '2px solid white',
+  },
+  gradeLink: {
+    color: '#FFF',
+    textDecoration: 'underline',
+  },
+};
+
 const GradeBook = () => {
   const students = [
     { name: 'Sali, Miko', grade: 'View Grade' },
@@ -10,40 +75,45 @@ const GradeBook = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-yellow-500">
-      <div className="w-full max-w-4xl bg-orange-400 rounded-xl p-8">
-        <h1 className="text-4xl text-white font-bold text-center mb-10">Grade Book</h1>
-        <div className="overflow-x-auto">
-          <table className="w-full bg-orange-300 rounded-lg text-left">
-            <thead>
-              <tr className="border-b-2 border-white">
-                <th className="text-left p-4 text-white">Name</th>
-                <th className="text-left p-4 text-white">Grade</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map((student, index) => (
-                <tr key={index} className="border-b border-white">
-                  <td className="p-4 text-white">{student.name}</td>
-                  <td className="p-4 text-right">
-                    <a href="#" className="text-white underline">{student.grade}</a>
-                  </td>
+    <div>
+      {/* Navbar */}
+      <nav style={styles.navbar}>
+        <div style={styles.navbarTitle}>Grade Book</div>
+        <div>
+          <span style={styles.icon}>⚙️</span>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <div style={styles.container}>
+        <div style={styles.content}>
+          {/* Table */}
+          <div style={styles.table}>
+            <table className="w-full bg-orange-300 rounded-lg text-left">
+              <thead>
+                <tr style={styles.tableRow}>
+                  <th style={styles.tableHead}>Name</th>
+                  <th style={styles.tableHead}>Grade</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {students.map((student, index) => (
+                  <tr key={index} style={styles.tableRow}>
+                    <td style={styles.tableCell}>{student.name}</td>
+                    <td style={styles.tableCell} className="text-right">
+                      <a href="#" style={styles.gradeLink}>
+                        {student.grade}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-function App() {
-  return (
-    <div>
-      <GradeBook />
-    </div>
-  );
-}
-
-export default App;
+export default GradeBook;

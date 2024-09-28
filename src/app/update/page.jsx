@@ -8,37 +8,43 @@ const UpdateSystem = () => {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-yellow-400">
-      <div className="w-80 bg-yellow-200 p-6 rounded-2xl shadow-lg">
-        {/* Menu Icon */}
-        <div className="absolute top-5 left-5">
-          <div className="flex flex-col gap-1">
-            <div className="w-6 h-1 bg-black"></div>
-            <div className="w-6 h-1 bg-black"></div>
-            <div className="w-6 h-1 bg-black"></div>
+    <div className="min-h-screen bg-yellow-400 flex flex-col"> {/* Yellow background */}
+      {/* Navbar */}
+      <nav className="bg-yellow-500 shadow-lg">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          {/* Hamburger Icon */}
+          <div className="text-3xl text-white cursor-pointer">☰</div>
+          
+          <h1 className="text-3xl font-bold text-white">Update System</h1>
+
+          <div className="flex space-x-6">
+            <button className="text-white text-xl">⚙️</button>
+            <button className="text-white text-xl">💬</button>
           </div>
         </div>
+      </nav>
 
-        {/* Header */}
-        <h1 className="text-2xl text-center font-bold text-black mb-6">Update System</h1>
+      {/* Content Section */}
+      <div className="container mx-auto mt-10">
+        <div className="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Available Applications for Update</h2>
 
-        {/* Application List */}
-        {appList.map((app) => (
-          <div
-            key={app.id}
-            className="flex items-center justify-between bg-yellow-100 p-3 mb-3 rounded-lg shadow-md"
-          >
-            {/* App Title */}
-            <div className="ml-4 flex-grow">
-              <h2 className="font-bold text-md text-black">{app.title}</h2>
+          {/* Application List */}
+          {appList.map((app) => (
+            <div
+              key={app.id}
+              className="flex items-center justify-between bg-gray-50 p-4 mb-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            >
+              {/* App Title */}
+              <h3 className="text-lg font-semibold text-gray-700">{app.title}</h3>
+
+              {/* Update Button */}
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                Update
+              </button>
             </div>
-
-            {/* Update Button */}
-            <button className="bg-orange-600 text-white px-3 py-1 rounded-md hover:bg-orange-700">
-              Update
-            </button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
